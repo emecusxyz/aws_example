@@ -77,7 +77,7 @@ app.get('/json', function (req, res) {
 	// changing a member of an object using spread operator
 	const tee= {...student,name:'peter'};
 	console.log(tee);
-	console.log(tee?.position);
+	
 
 	console.log("***********");
 	const nn =
