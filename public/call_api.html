@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Api Call</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <h2>Using the XMLHttpRequest Object</h2>
+    <h1>Novel</h1>
+<ul id="authors"></ul>
+
+<div id="demo">
+<!-- <button type="button" onclick="loadXMLDoc()">Change Content</button> -->
+<button type="button" onclick="fetch_data()">Change Content</button>
+</div>
+
+<script>
+/* function loadXMLDoc() {
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      document.getElementById("demo").innerHTML =
+      this.responseText;
+    }
+  };
+  //xhttp.open("GET", "https://my-web-app-3ykp.onrender.com", true);
+  xhttp.open("GET", "http://localhost:3006/json", true);
+  xhttp.send();
+} */
+const ul = document.getElementById('authors');
+  const list = document.createDocumentFragment();
+function  fetch_data()  {  fetch("http://localhost:3006/json")
+     .then((response) => response.json()
+    //console.log(response)
+    )
+     .then((dataa)=>{ let datasource = dataa.novel;
+      datasource.map(function(autho) {
+      
+        let li = document.createElement('li');
+        let author = document.createElement('h2');
+        let title = document.createElement('h2');
+        let description = document.createElement('span');
+
+        author.innerHTML = `${autho.author}`;
+        title.innerHTML = `${autho.title}`;
+        description.innerHTML = `${autho.description}`;
+
+        li.appendChild(author);
+        li.appendChild(title);
+        li.appendChild(description);
+        list.appendChild(li);
+        ul.appendChild(list);
+      });
+    })
+    .catch  ((error)=>(console.error(error)));
+
+ 
+      //console.log(datasource)
+  
+    // console.log(response.json());
+}
+</script>
+</body>
+</html>

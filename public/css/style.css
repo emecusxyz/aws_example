@@ -1,0 +1,44 @@
+body{
+    background: brown;
+}
+h2{
+   text-align: center;
+}
+#demo{
+    text-align: center;
+}
+.logincon {
+    width:400px;
+    margin-top: 50px;
+    text-align: center;
+  }
+p{
+    margin: 10px 0 !important;
+}
+.sales {
+    display: flex;
+  width: 50%;
+  height: 80px;
+justify-content: space-between;
+ background-color: #ffff
+ ;
+
+    border-width: 200px;
+    border-color: rgb(171, 219, 89);
+}
+.sa {
+    
+    width: 100px;
+    height: 80px;
+  
+   background-color: rgb(9, 32, 237)
+   ;
+  
+      border-width: 200px;
+      border-color: rgb(171, 219, 89);
+  }
+.sales h3 {
+  margin: 10px;
+    border-width: 50%;
+    border-color: red;
+}

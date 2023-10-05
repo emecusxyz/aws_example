@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/style.css">
+ 
+
+</head>
+<body>
+    
+    <fieldset>
+        <legend>Planet information</legend>
+        <label for="planetsSelect">Planet:</label>
+        <select id="planetsSelect" aria-controls="planetInfo">
+          <option value="">Select a planet…</option>
+          <option value="mercury">Mercury</option>
+          <option value="venus">Venus</option>
+          <option value="earth">Earth</option>
+          <option value="mars">Mars</option>
+        </select>
+        <button id="renderPlanetInfoButton">Go</button>
+      </fieldset>
+      
+      <div role="region" id="planetInfo" aria-live="polite">
+        <h2 id="planetTitle">No planet selected</h2>
+        <p id="planetDescription">Select a planet to view its description</p>
+      </div>
+      
+      <p>
+        <small>
+          Information from
+          <a href="https://en.wikipedia.org/wiki/Solar_System">Wikipedia</a>
+        </small>
+      </p>
+      <script>
+        let PLANETS_INFO = {
+   mercury: {
+     title: "Mercury",
+     description:
+       "Mercury is the smallest and innermost planet in the Solar System. It is named after the Roman deity Mercury, the messenger to the gods.",
+   },
+ 
+   venus: {
+     title: "Venus",
+     description:
+       "Venus is the second planet from the Sun. It is named after the Roman goddess of love and beauty.",
+   },
+ 
+   earth: {
+     title: "Earth",
+     description:
+       "Earth is the third planet from the Sun and the only object in the Universe known to harbor life.",
+   },
+ 
+   mars: {
+     title: "Mars",
+     description:
+       'Mars is the fourth planet from the Sun and the second-smallest planet in the Solar System after Mercury. In English, Mars carries a name of the Roman god of war, and is often referred to as the "Red Planet".',
+   },
+ };
+ 
+ function renderPlanetInfo(planet) {
+   let planetTitle = document.querySelector("#planetTitle");
+   let planetDescription = document.querySelector("#planetDescription");
+
+   if (planet in PLANETS_INFO) {
+     planetTitle.textContent = PLANETS_INFO[planet].title;
+     console.log(PLANETS_INFO[planet].title);
+     planetDescription.textContent = PLANETS_INFO[planet].description;
+   } else {
+     planetTitle.textContent = "No planet selected";
+     planetDescription.textContent = "Select a planet to view its description";
+   }
+ }
+ 
+ let renderPlanetInfoButton = document.querySelector("#renderPlanetInfoButton");
+ 
+ renderPlanetInfoButton.addEventListener("click", (event) => {
+   let planetsSelect = document.querySelector("#planetsSelect");
+   let selectedPlanet = planetsSelect.options[planetsSelect.selectedIndex].value;
+ let hh = planetsSelect.options[planetsSelect.selectedIndex];
+ console.log(hh);
+   renderPlanetInfo(selectedPlanet);
+ });
+ 
+     </script>
+</body>
+</html>

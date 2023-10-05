@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Api Call</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+    <h1>Novel</h1>
+
+<!-- <button type="button" onclick="loadXMLDoc()">Change Content</button> -->
+<!-- <button type="button" onclick="getData()">Change Content</button> -->
+
+</div>
+<table class="table table-Striped">
+    <thead>
+        <tr>
+          <th>Title</th>
+          <th>description</th>
+          <th>Author</th>
+        </tr>
+      </thead>
+    <tbody id="data">
+        
+    </tbody>
+ </table>   
+<script>
+
+
+window.onload = getData();
+  async function getData(){
+       const response= await fetch("http://localhost:3017/json")
+       console.log(response);
+       const data= await response.json();
+       console.log(data);
+        //length=data.novel.length;
+       console.log(data.novel);
+       length = data.novel.length;
+       console.log(length)
+        var temp = "";
+       for(i=0;i<length;i++)
+      
+     
+       {
+          temp+="<tr>";
+          temp+="<td>"+data.novel[i].title+"</td>";
+          temp+="<td>"+data.novel[i].description+"</td>";
+          temp+="<td>"+data.novel[i].author+"</td>";
+          temp+="<tr>";
+          
+       }
+ console.log(temp);
+       
+ document.getElementById("data").innerHTML=temp;
+     }
+     
+</script>
+</body>
+</html>

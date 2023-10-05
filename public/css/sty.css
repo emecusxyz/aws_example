@@ -1,0 +1,21 @@
+h1 {
+    position: fixed;
+    top: 0px;
+    left: 50px;
+    padding: 10px;
+    margin: 0px;
+    width: 100%;
+    background-color: #efefef;}
+    p.example {
+    margin-top: 100px;}
+
+    .sale {
+
+        background-color: blue;
+        width:50%;
+        height:200px;
+        margin-top:50px ;
+       
+        border-width: 300px;
+        border-color: chartreuse;
+    }
