@@ -6,6 +6,6 @@ on:
 
 jobs:
   test_pull_request:
-    runs-on: "self-nehosted"
+    runs-on: "self-hosted"
     steps:
       - uses: actions/checkout@v2
