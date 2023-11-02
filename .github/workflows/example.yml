@@ -1,11 +1,11 @@
-name: test
+name: Node Continuous Integration
 
 on:
   push:
-    branch: [main]
+    branches: [main]
 
 jobs:
-  deploy:
-    runs-on: "self hosted"
+  test_pull_request:
+    runs-on: "self-nehosted"
     steps:
       - uses: actions/checkout@v2
